@@ -1,5 +1,5 @@
 from twitter import *
-from twitter_employee import TwitterEmployee
+from models.twitter_employee import TwitterEmployee
 import time
 
 OAUTH_TOKEN = "16999900-Egp9CoOFvp5tGnea7mCAKjxJ77lRiVlrt4vfiRPYZ"
@@ -20,7 +20,6 @@ while cursor != 0:
   try:
     twitter_team_list = t.lists.members(cursor=cursor, slug="team", owner_screen_name="twitter")
   except twitter.api.TwitterHTTPError, e:
-    print e#['errors']['code']
     if e['errors']['code'] == 88:
       print "Rate Limit...waiting 15 min"
       time.sleep(60 * 15)  
@@ -34,5 +33,5 @@ while cursor != 0:
       screen_name = employee['screen_name']
       twit = TwitterEmployee(screen_name=name)
       twit.save()
-      
+
 print 'Number of Users: ', TwitterEmployee.count()
