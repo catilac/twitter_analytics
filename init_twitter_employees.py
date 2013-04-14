@@ -19,7 +19,7 @@ while cursor != 0:
   print "Current Page: ", cursor
   try:
     twitter_team_list = t.lists.members(cursor=cursor, slug="team", owner_screen_name="twitter")
-  except twitter.api.TwitterHTTPError, e:
+  except TwitterHTTPError, e:
     if e['errors']['code'] == 88:
       print "Rate Limit...waiting 15 min"
       time.sleep(60 * 15)  

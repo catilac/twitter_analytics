@@ -9,5 +9,5 @@ class Tweet(Document):
     Index('favorites_count'),
     Index('user_id'),
     Index('created_at'),
-    Index('twitter_id', unique=True)
+    Index('twitter_id', unique=True, sparse=True)
   ]
