@@ -50,7 +50,7 @@ while num_tweets < 100000:
                       created_at=tweet['created_at'],
                       twitter_id=tweet['id'],
                       text=tweet['text'],
-                      user_id=employee.id)
+                      user_id=employee['screen_name'])
     new_tweet.save()
     if '_id' in new_tweet:
       num_tweets += 1
