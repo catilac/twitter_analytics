@@ -46,7 +46,7 @@ while num_tweets < 100000:
     max_id_dict[sn] = tweets[-1]['id'] - 1
   for tweet in tweets:
     new_tweet = Tweet(retweet_count=tweet['retweet_count'],
-                      favorites_count=tweet.get('favourites_count', 0),
+                      favorites_count=tweet['favorite_count'],
                       created_at=tweet['created_at'],
                       twitter_id=tweet['id'],
                       text=tweet['text'],
