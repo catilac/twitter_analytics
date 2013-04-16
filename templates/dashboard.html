@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <script type="text/javascript" src="{{url_for('static', filename='jquery.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='d3.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='main.js')}}"></script>
+    <title>Flaskr</title>
+  </head>
+  <body>
+    <div id='top-users'>
+      <h2>Top Users</h2>
+      <div class='graph'></div>
+    </div>
+
+    <div id='top-content'>
+      <h2>Top Content</h2>
+      <div class='graph'></div>
+    </div>
+  </body>
+</html>
