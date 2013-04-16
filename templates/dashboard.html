@@ -4,8 +4,11 @@
     <script type="text/javascript" src="{{url_for('static', filename='jquery.js')}}"></script>
     <script type="text/javascript" src="{{url_for('static', filename='d3.js')}}"></script>
     <script type="text/javascript" src="{{url_for('static', filename='main.js')}}"></script>
-    <title>Flaskr</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Addvocate Graphz</title>
   </head>
+  
   <body>
     <div id='top-users'>
       <h2>Top Users</h2>

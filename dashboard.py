@@ -25,7 +25,7 @@ def top_users():
         "total_fav": {"$sum": "$favorites_count"}}},
       {"$sort": SON([("total_rts", -1), ("total_fav", -1)])}
     ])
-  return json.dumps(top_users, default=json_util.default)
+  return json.dumps(top_users['result'], default=json_util.default)
 
 
 @app.route("/top-content.json")
