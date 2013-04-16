@@ -30,7 +30,7 @@ def top_users():
 
 @app.route("/top-content.json")
 def top_content():
-  top_content = Tweets.find() .sort("retweet_count", -1) .sort("favorites_count", -1).limit(15)
+  top_content = Tweets.find().sort("retweet_count", -1).sort("favorites_count", -1).limit(15)
   results = []
   for tweet in top_content:
     results.append(tweet)
