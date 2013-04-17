@@ -12,6 +12,8 @@ t = Twitter(
                CONSUMER_KEY, CONSUMER_SECRET)
     )
 
+# Clear out existing employees
+TwitterEmployee.remove()
 
 # Grab all the users from the team list
 cursor = -1
