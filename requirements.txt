@@ -1,0 +1,6 @@
+mongo==0.2.0
+pymongo==2.5
+klout==0.1.3
+twitter==1.9.2
+flask==0.9
+

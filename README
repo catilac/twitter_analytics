@@ -1,3 +1,20 @@
+How to get it started:
+========================
+
+Install packages: 
+
+`pip install -r requirements.txt`
+
+There are 3 migrations which need to be run:
+python init_twitter_employees.py # Gets all users into the database
+python get_klout_scores.py # Saves the klout scores for the users.
+python get_tweets.py # Gets 100k tweets. 
+
+Afterwards, just run `python dashboard.py` and go to localhost:5000/
+
+
+
+
 This was a fun problem, and now I have a dataset. Unfortunately I don't have enough time
 to make things perfect, or go for my custom bonus item of doing sentiment analysis.
 
