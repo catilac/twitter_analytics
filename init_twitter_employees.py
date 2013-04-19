@@ -33,7 +33,7 @@ while cursor != 0:
     # create a TwitterEmployee entry for each user
     for employee in twitter_employees:
       screen_name = employee['screen_name']
-      twit = TwitterEmployee(screen_name=name)
+      twit = TwitterEmployee(screen_name=screen_name)
       twit.save()
 
 print 'Number of Users: ', TwitterEmployee.count()
