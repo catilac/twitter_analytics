@@ -1,5 +1,6 @@
 from klout import *
 from models.twitter_employee import TwitterEmployee
+import time
 
 KLOUT_API_KEY = "48fv7bcbcc36s4fpuezm6uvs"
 
@@ -7,9 +8,11 @@ k = Klout(KLOUT_API_KEY)
 
 employees = TwitterEmployee.find()
 
-for employee in employees:
+for idx, employee in enumerate(employees):
   sn = employee['screen_name']
   try:
+    if (idx + 1) % 10:
+      time.sleep(1)
     kloutId = k.identity.klout(screenName=sn).get('id')
   except KloutHTTPError, e:
     print e
