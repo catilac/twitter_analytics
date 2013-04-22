@@ -6,11 +6,12 @@ Install packages:
 `pip install -r requirements.txt`
 
 There are 3 migrations which need to be run:
-python init_twitter_employees.py # Gets all users into the database
-python get_klout_scores.py # Saves the klout scores for the users.
-python get_tweets.py # Gets 100k tweets. 
 
-Afterwards, just run `python dashboard.py` and go to localhost:5000/
+    python init_twitter_employees.py # Gets all users into the database
+    python get_klout_scores.py # Saves the klout scores for the users.
+    python get_tweets.py # Gets 100k tweets. 
+
+Afterwards, just run `python dashboard.py` and go to `localhost:5000/`
 
 
 
@@ -35,6 +36,7 @@ Luckily, thats something I'm interested in and I'll do that in my free time.
 
  * I used python. I'm really loving it, but there are some things that I need to do research
   on:
+
     - Package management: I want to use something like bundler for ruby. I am using X libraries, each with X_i version number and with a command it'll install all of them.
 
     - Idiomattic python. Could be useful. I'm sure there are nicer ways to do things.
