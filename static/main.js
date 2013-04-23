@@ -51,11 +51,9 @@ function scatterPlotFunc(route, xAxisName, yAxisName, graphElem) {
 
       var xMax = testX.domain()[1];
       var yMax = testY.domain()[1];
-      var mul = xMax * yMax;
+      var mul = xMax + yMax;
 
-      var interpolate = d3.interpolateNumber(3, 50);
-
-      console.log('debug: ', route,  xMax, yMax);
+      var interpolate = d3.interpolateNumber(3, 20);
 
       svg.append("g")
       .attr("class", "x axis")
@@ -83,9 +81,11 @@ function scatterPlotFunc(route, xAxisName, yAxisName, graphElem) {
       .data(data)
       .enter().append("circle")
       .attr("class", "dot")
-      .attr("r", function(d) { return interpolate((d[xAxisName]*d[yAxisName])/(mul));})
+      .attr("r", function(d) { return interpolate((d[xAxisName]+d[yAxisName])/(mul));})
       .attr("cx", function(d) { return x(d[xAxisName]); })
       .attr("cy", function(d) { return y(d[yAxisName]); })
+      .append("svg:title")
+      .text(function(d) { return d.user_id + ": " + d.text; });
     });
   }
 }

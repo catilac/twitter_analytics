@@ -18,10 +18,11 @@ def dashboard():
 @app.route("/top-users.json")
 def top_users():
   top_users =  Tweets.aggregate([
-      {"$limit": 1000},
+      {"$limit": 5000},
       {"$group": {
         "_id": "$user_id", 
-        "tweet_text": {"$addToSet" : "$text"},
+        "user_id": {"$addToSet" : "$user_id"},
+        "text": {"$addToSet" : "$text"},
         "total_rts": {"$sum": "$retweet_count"}, 
         "total_fav": {"$sum": "$favorites_count"}}},
       {"$sort": SON([("created_at", -1), ("total_rts", -1), ("total_fav", -1)])}
@@ -32,7 +33,7 @@ def top_users():
 
 @app.route("/top-content.json")
 def top_content():
-  top_content = Tweets.find().sort("created_at", -1).sort("retweet_count", -1).sort("favorites_count", -1).limit(15)
+  top_content = Tweets.find().sort("created_at", -1).sort("retweet_count", -1).sort("favorites_count", -1).limit(105)
   results = []
   for tweet in top_content:
     results.append(tweet)
