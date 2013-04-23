@@ -46,8 +46,16 @@ function scatterPlotFunc(route, xAxisName, yAxisName, graphElem) {
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     d3.json(route, function(err, data) {
-      x.domain(d3.extent(data, function(d) { return d[xAxisName]; })).nice();
-      y.domain(d3.extent(data, function(d) { return d[yAxisName]; })).nice();
+      var testX = x.domain(d3.extent(data, function(d) { return d[xAxisName]; })).nice();
+      var testY = y.domain(d3.extent(data, function(d) { return d[yAxisName]; })).nice();
+
+      var xMax = testX.domain()[1];
+      var yMax = testY.domain()[1];
+      var mul = xMax * yMax;
+
+      var interpolate = d3.interpolateNumber(3, 50);
+
+      console.log('debug: ', route,  xMax, yMax);
 
       svg.append("g")
       .attr("class", "x axis")
@@ -75,7 +83,7 @@ function scatterPlotFunc(route, xAxisName, yAxisName, graphElem) {
       .data(data)
       .enter().append("circle")
       .attr("class", "dot")
-      .attr("r", 3.5)
+      .attr("r", function(d) { return interpolate((d[xAxisName]*d[yAxisName])/(mul));})
       .attr("cx", function(d) { return x(d[xAxisName]); })
       .attr("cy", function(d) { return y(d[yAxisName]); })
     });
