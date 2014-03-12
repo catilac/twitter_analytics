@@ -8,7 +8,7 @@ import json
 app = Flask(__name__)
 
 client = MongoClient()
-db = client.addvocate_exam
+db = client.analytics
 Tweets = db.tweets
 
 @app.route("/")
@@ -20,10 +20,10 @@ def top_users():
   top_users =  Tweets.aggregate([
       {"$limit": 5000},
       {"$group": {
-        "_id": "$user_id", 
+        "_id": "$user_id",
         "user_id": {"$addToSet" : "$user_id"},
         "text": {"$addToSet" : "$text"},
-        "total_rts": {"$sum": "$retweet_count"}, 
+        "total_rts": {"$sum": "$retweet_count"},
         "total_fav": {"$sum": "$favorites_count"}}},
       {"$sort": SON([("created_at", -1), ("total_rts", -1), ("total_fav", -1)])}
     ])

@@ -2,10 +2,10 @@ from twitter import *
 from models.twitter_employee import TwitterEmployee
 import time
 
-OAUTH_TOKEN = "16999900-Egp9CoOFvp5tGnea7mCAKjxJ77lRiVlrt4vfiRPYZ"
-OAUTH_SECRET= "0yXs7yomSsZlXdVDKIO7L7fuWBMn1pmMYB1wbw5E9eM"
-CONSUMER_KEY = "uFuIq77xQTgrCXhAj4ugDw"
-CONSUMER_SECRET = "MJKUc3IyN5aztJCrQ8kTI708mPao76dSNGONZ6P6I"
+OAUTH_TOKEN = "YOUR_OAUTH_TOKEN"
+OAUTH_SECRET= "YOUR_OAUTH_SECRET"
+CONSUMER_KEY = "YOUR_CONSUMER_KEY"
+CONSUMER_SECRET = "YOUR_CONSUMER_SECRET"
 
 t = Twitter(
     auth=OAuth(OAUTH_TOKEN, OAUTH_SECRET,
@@ -24,7 +24,7 @@ while cursor != 0:
   except TwitterHTTPError, e:
     if e['errors']['code'] == 88:
       print "Rate Limit...waiting 15 min"
-      time.sleep(60 * 15)  
+      time.sleep(60 * 15)
     else:
       raise
   else:

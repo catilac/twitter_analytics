@@ -2,7 +2,7 @@ from klout import *
 from models.twitter_employee import TwitterEmployee
 import time
 
-KLOUT_API_KEY = "48fv7bcbcc36s4fpuezm6uvs"
+KLOUT_API_KEY = "YOUR_API_KEY_HERE"
 
 k = Klout(KLOUT_API_KEY)
 
